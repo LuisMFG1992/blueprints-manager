@@ -1,6 +1,4 @@
-import "./App.css";
-import Button from "./Components/Button/Button";
-import InputSelect from "./Components/Inputs/inputSelect";
+import React from "react";
 
 const baseDeDdatos = [
   { id: "041", subestacion: "041 -  Libertador", secciones: 2, acoples: 1 },
@@ -84,17 +82,17 @@ const baseDeDdatos = [
   { id: "CD0", subestacion: "CD004 - Escobar", secciones: 3, acoples: 1 },
 ];
 
-function App() {
+const InputSelect = () => {
   return (
-    <div className="appContainer">
-      <img className="logo" src="./assets/edenorLogo.png" alt="Logo-Edenor" />
-      <p className="title">Administrador de planos SEAT-MT</p>
-      <div className="flex justify-center items-center flex-col">
-        <InputSelect />
-        <Button />
-      </div>
-    </div>
+    <select className="select select-bordered w-full max-w-xs">
+      <option disabled selected>
+        Subestaciones
+      </option>
+      {baseDeDdatos.map((element) => (
+        <option>{element.subestacion}</option>
+      ))}
+    </select>
   );
-}
+};
 
-export default App;
+export default InputSelect;
